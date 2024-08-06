@@ -19,8 +19,12 @@ Some insights about satisfaction found during EDA include a few centralized grou
 
 # Modeling and Evaluation 
 
-This section should detail what models you used and the corresponding evaluation metrics. 
+Initally, I used a binomial logistic regression model predicting whether the employee left or not. Features included encoded salary levels, one-hot encoded department values, and many other features. Through model training and evaluation with a confusion matrix, the logistic regression model suffered from imbalanced data with significantly more employees staying compared to those that left. It had a f-1 score of 0.9 for employees that stayed, versus a f-1 score of 0.33 for employees that left.
+
+Next, I tried a decision tree based on the same features. Using gridsearch to find the best model hyperparameters, the decision tree model performed better than the logistic model, and I implemented a random forest model to improve upon the singular decision tree. The best random forest resulted in an accuracy of 0.977983 and precision of 0.950023.
+
+However, the feature average monthly hours might be biased due to employees that left inherently having lower average monthly hours. After dropping this feature and recreating the random forest, the best model resulted in an accuracy of 0.961641 and precision of 0.870406.
 
 # Conclusion
 
-In the conclusion section explain the recommendations you have in solving the business problem and highlight any future steps you will take to expand on your project, 
+These models showcase a real-world application of analyzing and cleaning data, then creating tools to find insights. For next steps, further improvement on the models with different data could allow Salifort Motors to consolidate all of their insights to make data-driven decisions to increase employee satisfaction and retention.
